@@ -16,6 +16,7 @@ img {
   width: 100%;
   aspect-ratio: 16/9;
   pointer-events: none;
+  overflow: hidden;
 }
 #game {
   width: 100%;
@@ -35,6 +36,7 @@ img {
   background-color: #b10b0b;
   background-size: cover;
   pointer-events: none;
+  opacity: 0.8;
   z-index: -1;
 }
 #game_elements {
@@ -55,6 +57,17 @@ img {
 }
 #number_bar * {
   font-size: 200%;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  color: chartreuse;
+  text-shadow: 2px 2px black;
+}
+#upgrades_screen {
+  position: absolute;
+  border: 2px solid black;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
 }
 .parent {
   display: grid;
@@ -110,4 +123,37 @@ img {
   100% {
     transform: scale(70%);
   }
+}
+/* Upgrades grid */
+.parent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.div3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.div4 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.div5 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.div6 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.div7 {
+  grid-area: 5 / 1 / 6 / 2;
+}
+.div8 {
+  grid-area: 6 / 1 / 7 / 2;
 }
