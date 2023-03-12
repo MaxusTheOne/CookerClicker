@@ -69,6 +69,14 @@ img {
   height: 100%;
   width: 100%;
 }
+#upgrades_screen * {
+  pointer-events: all;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  color: aquamarine;
+  text-shadow: 2px 2px black;
+  padding: 3px;
+}
 .parent {
   display: grid;
   grid-template-columns: 66% 34%;
@@ -125,35 +133,14 @@ img {
   }
 }
 /* Upgrades grid */
-.parent {
+.upgradeParent {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
 
-.div1 {
+.u1 {
   grid-area: 1 / 1 / 2 / 2;
-}
-.div2 {
-  grid-area: 1 / 2 / 2 / 3;
-}
-.div3 {
-  grid-area: 1 / 3 / 2 / 4;
-}
-.div4 {
-  grid-area: 2 / 1 / 3 / 2;
-}
-.div5 {
-  grid-area: 3 / 1 / 4 / 2;
-}
-.div6 {
-  grid-area: 4 / 1 / 5 / 2;
-}
-.div7 {
-  grid-area: 5 / 1 / 6 / 2;
-}
-.div8 {
-  grid-area: 6 / 1 / 7 / 2;
 }
