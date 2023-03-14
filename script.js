@@ -4,12 +4,14 @@
 let cookers = 0;
 let cps = 0;
 let refreshRate = 50;
-let upgrade1Level = 0;
+let upgradeLevelList = [0, 0];
+let baseList = [0, 5];
+let rateGrowthList = [0, 1.07];
+let cpsIncreaseList = [0, 1]; //Actual increase is divided by 10
 setInterval(numberUpdater, refreshRate);
 document.querySelector("#cooker_sprite").addEventListener("click", cookerClicker);
 document.querySelector("#upgrade1 button").addEventListener("click", upgradeClicker);
-document.querySelector("#upgrade1_cost").textContent = `price: ${costFinder(5, 1.07, upgrade1Level)}`;
-document.querySelector("#upgrade1_amount").textContent = `Dough slappers: ${upgrade1Level}`;
+updateWhenClicked();
 
 function numberUpdater() {
   // console.log(cps);
@@ -19,8 +21,8 @@ function numberUpdater() {
 function updateWhenClicked() {
   // console.log("updateWhenClicked");
   document.querySelector("#cookers_per_sec").textContent = `${cps / 10} cps`;
-  document.querySelector("#upgrade1_cost").textContent = `price: ${costFinder(5, 1.07, upgrade1Level)}`;
-  document.querySelector("#upgrade1_amount").textContent = `Dough slappers: ${upgrade1Level}`;
+  document.querySelector("#upgrade1_cost").textContent = `price: ${costFinder(5, 1.07, upgradeLevelList[1])}`;
+  document.querySelector("#upgrade1_amount").textContent = `Dough slappers: ${upgradeLevelList[1]}`;
 }
 function cookerClicker() {
   let cooker = this;
@@ -29,14 +31,16 @@ function cookerClicker() {
   cooker.offsetLeft;
   cooker.classList.add("clicked");
 }
-function upgradeClicker(base, rateGrowth, owned, cpsIncrease) {
+function upgradeClicker() {
   let upgradeNum = this.id[0];
-  console.log(upgradeNum);
-  let cost = costFinder(baseList(upgradeNum), rateGrowthList(upgradeNum), eval("upgrade" + upgradeNum + "Level"));
+
+  console.log(`lvlist: ${upgradeLevelList[upgradeNum]} Num: ${upgradeNum}`);
+  let cost = costFinder(baseList[upgradeNum], rateGrowthList[upgradeNum], upgradeLevelList[upgradeNum]);
   console.log(cost);
   if (cost <= cookers) {
     cookers = cookers - cost;
-    eval("upgrade" + upgradeNum + "Level");
+    upgradeLevelList[upgradeNum]++;
+
     cps += cpsIncreaseList(upgradeNum);
   }
   updateWhenClicked();
@@ -46,19 +50,7 @@ function costFinder(base, rateGrowth, owned) {
   console.log(`base: ${base}, rateGrowth: ${rateGrowth}, owned: ${owned}, cost: ${cost}`);
   return cost;
 }
-function baseList(num) {
-  console.log("baselist " + num);
-  switch (num) {
-    case "1":
-      return 5;
-  }
-}
-function rateGrowthList(num) {
-  switch (num) {
-    case "1":
-      return 1.07;
-  }
-}
+
 function cpsIncreaseList(num) {
   switch (num) {
     case "1":
