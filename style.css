@@ -57,8 +57,7 @@ img {
 }
 #number_bar * {
   font-size: 200%;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
-    sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   color: chartreuse;
   text-shadow: 2px 2px black;
 }
@@ -71,8 +70,7 @@ img {
 }
 #upgrades_screen * {
   pointer-events: all;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
-    sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   color: aquamarine;
   text-shadow: 2px 2px black;
   padding: 3px;
@@ -136,7 +134,7 @@ img {
 .upgradeParent {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
