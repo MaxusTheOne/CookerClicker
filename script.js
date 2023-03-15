@@ -4,17 +4,18 @@
 let cookers = 0;
 let cps = 0;
 let refreshRate = 50;
-let upgradeLevelList = [0, 0, 0];
-let baseList = [40, 5, 60];
-let rateGrowthList = [2.5, 1.07, 1.15];
-let cpsIncreaseList = [0, 2, 120]; //Actual increase is divided by 10
-let upgradeNameList = ["Cookers per Click", "Dough slappers", "Batter blaster"];
+let upgradeLevelList = [0, 0, 0, 0];
+let baseList = [40, 5, 60, 540];
+let rateGrowthList = [2.5, 1.07, 1.15, 1.15];
+let cpsIncreaseList = [0, 2, 30, 100]; //Actual increase is divided by 10
+let upgradeNameList = ["Cookers per Click", "Dough slappers", "Batter blaster", "Choco chipper"];
 setInterval(numberUpdater, refreshRate);
 document.querySelector("#cooker_sprite").addEventListener("click", cookerClicker);
 
 upgradeInit(0);
 upgradeInit(1);
 upgradeInit(2);
+upgradeInit(3);
 function upgradeInit(upgradeNum) {
   document.querySelector("#upgrade" + upgradeNum + " button").addEventListener("click", upgradeClicker);
   updateWhenClicked(upgradeNum);
